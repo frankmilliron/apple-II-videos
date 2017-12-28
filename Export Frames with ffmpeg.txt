@@ -1,0 +1,29 @@
+
+./ffmpeg -i /path/to/video.mkv /path/to/output-%05d.png
+
+
+
+to crop a 16:9 video to 4:3 use this instead...
+
+./ffmpeg -i /path/to/video.mkv -filter:v 'crop=ih/3*4:ih' /path/to/output-%05d.png
+
+
+
+EXAMPLE:
+
+cd /Users/Frank/Desktop/Vintage\ Computers/Apple\ II/Apple\ II\ Video\ 2017/-Assets/Frame\ Exporting
+
+./ffmpeg -i (drop video location) (drop destination folder - delete space)/FRAME.%05d.png
+
+or
+
+./ffmpeg -i (drop video location) -filter:v 'crop=ih/3*4:ih' (drop destination folder - delete space)/FRAME.%05d.png
+
+
+
+Current render folder can process up to 7,800 frames
+A 32mb prodos partition can support one large file of 16mb
+1024k / 2 blocks per frame = 16,384 frames possible in a single file
+
+
+16,384 frames at roughly 25 frames per second = 655 seconds (almost 11 minutes)
